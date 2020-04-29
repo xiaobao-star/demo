@@ -13,7 +13,7 @@ import static java.lang.System.out;
 public class Demo3 {
     public static void main(String[] args) {
         List<String> list = new ArrayList<String>();
-        new CopyOnWriteArrayList<>();
+       // new CopyOnWriteArrayList<>();
         for(int i = 0 ;i < 30 ;i++)
         {
             new Thread(() -> {
