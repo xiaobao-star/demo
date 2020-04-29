@@ -15,7 +15,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  *
  * CAS缺点
- * 如果比较不成功，会一直进行尝试，如果长时间不成功，会加大cpu得开销
+ * 1.如果比较不成功，会一直进行尝试，如果长时间不成功，会加大cpu得开销
+ * 2.只能进行一个共享变量得原子操作，对于多个共享变量操作时，CAS就无法保证操作得原子性  这个时候就需要加锁
  */
 public class CasDemo {
     public static void main(String[] args){
