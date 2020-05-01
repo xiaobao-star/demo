@@ -25,7 +25,6 @@ public class CasDemo {
         atomicInteger.compareAndSet(5,10);
         atomicInteger.compareAndSet(10,20);
 
-
         System.out.println(atomicInteger.get());
     }
 }
