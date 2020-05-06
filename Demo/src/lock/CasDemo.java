@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * 为什么atomicInteger要用unseaf而不用synconized？
  * 因为sync锁虽然保证了数据得一致性但是无法保证并发性
- * 而unseaf由于直接调用cpu得原子命令，原子命令天生就是不可中断得，既保证了一致性也保证了并发性
+ * 而unseaf由于直接调用cpu得原子命令，原子命令是不可中断得，既保证了一致性也保证了并发性
  *
  *
  * CAS缺点
@@ -20,6 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class CasDemo {
     public static void main(String[] args){
+        //主物理内存中得值
         AtomicInteger atomicInteger = new AtomicInteger(5);
 
         //将主物理内存中的值与线程私有内存区的快照值进行比较，看是否被其他线程修改，如果相同才进行修改
