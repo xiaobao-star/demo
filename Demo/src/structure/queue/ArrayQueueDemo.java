@@ -1,5 +1,9 @@
 package structure.queue;
 
+
+/**
+ * 数组模拟环形队列
+ */
 public class ArrayQueueDemo {
     public static void main(String[] args) {
         ArrayQueue arrayQueue = new ArrayQueue(3);
@@ -19,14 +23,12 @@ class ArrayQueue{
 
     public ArrayQueue(int maxSize) {
         this.maxSize = maxSize;
-        this.front = -1;//队首指针的前一个位置
-        this.rear = -1;//队尾指针（就是队列最后一个数据）
         obj = new Object[maxSize];
     }
 
     //判断队列是否已满
     public boolean isFull(){
-        return rear == maxSize-1;
+        return (rear+1)%maxSize == front;
     }
 
     //判断队列是否为空
@@ -40,8 +42,8 @@ class ArrayQueue{
             System.out.println("队列满，不能加入数据");
             return ;
         }
-        rear++;
         obj[rear] = object;
+        rear = (rear + 1) % maxSize;
     }
 
     //获取数据
@@ -50,7 +52,10 @@ class ArrayQueue{
         if(isEampty()){
             throw new RuntimeException("队列为空,不能取出数据");
         }
-        return obj[++front];
+
+        Object value = obj[front];
+        front = (front + 1) % maxSize;
+        return value;
     }
 
     //展示数据
@@ -59,8 +64,8 @@ class ArrayQueue{
             System.out.println("队列为空");
             return;
         }
-        for (int i = 0; i < obj.length; i++) {
-            System.out.printf("arr[%s]=%s\n", i, obj[i]);
+        for (int i = front; i < front+((rear-front+maxSize)%maxSize); i++) {
+            System.out.printf("arr[%s]=%s\n", i%maxSize, obj[i]);
         }
     }
 
