@@ -3,9 +3,9 @@ import java.util.Stack;
 
 public class CalculatorStackDemo {
     public static void main(String[] args) {
-        String str = "1-2*(2+1)";
+        String str = "1-2*2+1";
         Stack<Integer> numStack = new Stack();
-        Stack<Character> opreStack = new Stack<>();
+        Stack<Character> opreStack = new Stack();
 
         for (int i = 0; i < str.length(); i++) {
             //如果是一个数字,直接入栈
@@ -67,10 +67,7 @@ public class CalculatorStackDemo {
 }
 enum  Ccc{
 
-    JIA(1,'+'),
-    JIAN(1, '-'),
-    CHENG(2,'*'),
-    CHU(2,'/');
+    JIA(1,'+'),JIAN(1, '-'),CHENG(2,'*'),CHU(2,'/');
 
     private int policy;
     private Character oper;
