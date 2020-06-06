@@ -11,21 +11,19 @@ public class SelectSort {
     public static void main(String[] args) {
         int [] arr = {6, 2, 1, -1, -2, -5, 0};
 
-        for (int j = 0; j < arr.length-1; j++) {
-            int min = arr[j];
-            int minindex = j;
-            for (int i = j +1 ; i < arr.length; i++) {
-                if(min > arr[i]){   //说明假设的min不是真正的最小值
-                    min = arr[i];   //重置min
-                    minindex = i;   //重置minindex
+        for (int i = 0; i < arr.length-1; i++) {
+            int min = arr[i];
+            int minindex = i;
+            for (int j = i+1; j < arr.length; j++) {
+                if(min > arr[j]){
+                    min = arr[j];
+                    minindex = j;
                 }
             }
-            arr[minindex] =  arr[j];    //将最小值与首位交换位置
-            arr[j] = min;               //第一次遍历将最小值放到数组的第一位，第二次将后续的最小值放到数组的第二位，第三次将后续的最小值放到数组的第三位
+            arr[minindex] = arr[i];
+            arr[i] = min;
         }
-
-
-
+        System.out.println(Arrays.toString(arr));
 
         /*for (int i = 0; i < arr.length; i++) {
             if(arr[i] < arr[0]){

@@ -1,6 +1,9 @@
 package sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
 
 /**
  * 插入排序
@@ -8,18 +11,30 @@ import java.util.Arrays;
  */
 public class InsertSort {
     public static void main(String[] args) {
-        int [] arr = {6, 2, 1, -1, -2, 7, 9};
+        Date date = new Date();
+        SimpleDateFormat simpleFormatter = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+        System.out.println("开始的时间为:" + simpleFormatter.format(date));
 
+        int[] arr = new int[5];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 80000);
+        }
+        sortInsert(arr);
+
+        Date date1 = new Date();
+        SimpleDateFormat simpleFormatter1 = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+        System.out.println("结束的时间为:" + simpleFormatter1.format(date1));
+    }
+
+    private static void sortInsert(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int insertVal = arr[i];
             int insertIndex = i - 1;
-            while(insertIndex >= 0 && insertVal < arr[insertIndex]){
-                arr[insertIndex+1] = arr[insertIndex];
+            while (insertIndex >= 0 && insertVal < arr[insertIndex]) {
+                arr[insertIndex + 1] = arr[insertIndex];
                 insertIndex--;
             }
-            arr[insertIndex+1] = insertVal;
+            arr[insertIndex + 1] = insertVal;
         }
-        System.out.println(Arrays.toString(arr));
-        //sortInsert(arr);
     }
 }
