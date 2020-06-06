@@ -8,16 +8,18 @@ import java.util.Arrays;
  */
 public class InsertSort {
     public static void main(String[] args) {
-        int [] arr = {6, 2, 1, -1};
+        int [] arr = {6, 2, 1, -1, -2, 7, 9};
 
-        int insertVal = arr[1];
-        int insertIndex = 1 - 1;
-        while(insertIndex >= 0 && insertVal < arr[insertIndex]){
-            arr[insertIndex+1] = arr[insertIndex];
-            insertIndex --;
+        for (int i = 1; i < arr.length; i++) {
+            int insertVal = arr[i];
+            int insertIndex = i - 1;
+            while(insertIndex >= 0 && insertVal < arr[insertIndex]){
+                arr[insertIndex+1] = arr[insertIndex];
+                insertIndex--;
+            }
+            arr[insertIndex+1] = insertVal;
         }
-        arr[insertIndex+1] = insertVal;
-
         System.out.println(Arrays.toString(arr));
+        //sortInsert(arr);
     }
 }
