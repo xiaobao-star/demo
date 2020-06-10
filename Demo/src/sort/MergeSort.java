@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
+        int[] arr = {8, 4, 6, 7, 1, 3, 6, 2};
         int []temp = new int [arr.length];
         margetSort(arr, 0, arr.length-1, temp);
         System.out.println(Arrays.toString(arr));
@@ -42,13 +42,13 @@ public class MergeSort {
                 t++;
             }
         }
-
+        //将有剩余数据的一边的数据依次填充到temp
         while (i <= mid){
             temp[t] = arr[i];
             t++;
             i++;
         }
-
+        //将有剩余数据的一边的数据依次填充到temp
         while (j <= right){
             temp[t] = arr[j];
             t++;
