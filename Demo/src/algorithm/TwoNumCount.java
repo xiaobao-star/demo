@@ -9,7 +9,7 @@ import java.util.Map;
 public class TwoNumCount {
     public static void main(String[] args)
     {
-        int [] test = twosum1(new int []{2,7,11,15},18);
+        int [] test = twosum(new int []{2,7,11,15},18);
 
         for (int t:test)
         {
