@@ -1,0 +1,4 @@
+1.LockSupport
+    是用来创建锁和其他同步类得基本线程阻塞原语
+
+    LockSupport中的Park()和unPark()得作用分别是wait()阻塞线程和notify()接触阻塞线程得加强辅助版
